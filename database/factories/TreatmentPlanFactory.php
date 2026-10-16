@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\TreatmentPlan\TreatmentPlanType;
 use App\Models\Patient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -16,7 +17,7 @@ class TreatmentPlanFactory extends Factory
             'patient_id' => Patient::factory(),
             'date' => fake()->date(),
             'appointment' => fake()->dateTime(),
-            'type' => fake()->randomElement(['preventive', 'restorative', 'endodontic', 'periodontal', 'prosthetic', 'surgical', 'orthodontic', 'other']),
+            'type' => fake()->randomElement(TreatmentPlanType::class),
             'notes' => fake()->realText(),
         ];
     }

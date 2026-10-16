@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\TreatmentPlan\TreatmentPlanType;
 use App\Models\Patient;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(Patient::class)->constrained();
             $table->date('date')->nullable();
             $table->dateTime('appointment')->nullable();
-            $table->enum('type', ['preventive', 'restorative', 'endodontic', 'periodontal', 'prosthetic', 'surgical', 'orthodontic', 'other']);
+            $table->enum('type', TreatmentPlanType::cases());
             $table->text('notes')->nullable();
             $table->timestamps();
         });
