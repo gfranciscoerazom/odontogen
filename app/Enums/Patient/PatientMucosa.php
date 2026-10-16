@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums;
+namespace App\Enums\Patient;
 
 use App\Trait\UseValueAsLabel;
 use Filament\Support\Contracts\HasColor;
@@ -8,13 +8,13 @@ use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 use Illuminate\Contracts\Support\Htmlable;
 
-enum PatientSex: string implements HasColor, HasIcon, HasLabel
+enum PatientMucosa: string implements HasColor, HasIcon, HasLabel
 {
     use UseValueAsLabel;
 
-    case MALE = 'male';
-    case FEMALE = 'female';
-    case OTHER = 'other';
+    case HEALTHY = 'healthy';
+    case PATHOLOGICAL = 'pathological';
+    case PRE_EXISTING_CONDITION = 'pre_existing_condition';
 
     /**
      * Get the icon for the enum case.
@@ -22,9 +22,9 @@ enum PatientSex: string implements HasColor, HasIcon, HasLabel
     public function getIcon(): string|\BackedEnum|Htmlable|null
     {
         return match ($this) {
-            self::MALE => 'heroicon-o-male',
-            self::FEMALE => 'heroicon-o-female',
-            self::OTHER => 'heroicon-o-question-mark-circle',
+            self::HEALTHY => 'heroicon-o-check-circle',
+            self::PATHOLOGICAL => 'heroicon-o-x-circle',
+            self::PRE_EXISTING_CONDITION => 'heroicon-o-information-circle',
         };
     }
 
@@ -34,9 +34,9 @@ enum PatientSex: string implements HasColor, HasIcon, HasLabel
     public function getColor(): array|string|null
     {
         return match ($this) {
-            self::MALE => 'blue',
-            self::FEMALE => 'pink',
-            self::OTHER => 'gray',
+            self::HEALTHY => 'green',
+            self::PATHOLOGICAL => 'red',
+            self::PRE_EXISTING_CONDITION => 'amber',
         };
     }
 }
