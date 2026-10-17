@@ -22,9 +22,9 @@ enum PatientSex: string implements HasColor, HasIcon, HasLabel
     public function getIcon(): string|\BackedEnum|Htmlable|null
     {
         return match ($this) {
-            self::MALE => 'heroicon-o-male',
-            self::FEMALE => 'heroicon-o-female',
-            self::OTHER => 'heroicon-o-question-mark-circle',
+            self::MALE => 'heroicon-o-rocket-launch',
+            self::FEMALE => 'heroicon-o-sparkles',
+            self::OTHER => 'heroicon-o-swatch',
         };
     }
 
@@ -34,8 +34,8 @@ enum PatientSex: string implements HasColor, HasIcon, HasLabel
     public function getColor(): array|string|null
     {
         return match ($this) {
-            self::MALE => 'blue',
-            self::FEMALE => 'pink',
+            self::MALE => 'info',
+            self::FEMALE => 'warning',
             self::OTHER => 'gray',
         };
     }

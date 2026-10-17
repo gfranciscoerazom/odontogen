@@ -34,9 +34,9 @@ enum PatientLips: string implements HasColor, HasIcon, HasLabel
     public function getColor(): array|string|null
     {
         return match ($this) {
-            self::HEALTHY => 'green',
-            self::PATHOLOGICAL => 'red',
-            self::PRE_EXISTING_CONDITION => 'amber',
+            self::HEALTHY => 'success',
+            self::PATHOLOGICAL => 'danger',
+            self::PRE_EXISTING_CONDITION => 'warning',
         };
     }
 }

@@ -40,12 +40,12 @@ enum PatientSalivaryGlands: string implements HasColor, HasIcon, HasLabel
     public function getColor(): array|string|null
     {
         return match ($this) {
-            self::HEALTHY => 'green',
-            self::MILD_INFLAMMATION => 'yellow',
-            self::CHRONIC_INFLAMMATION => 'amber',
-            self::LIGHT_BLEEDING => 'orange',
-            self::CHRONIC_BLEEDING => 'red',
-            self::INJURIES => 'rose',
+            self::HEALTHY => 'success',
+            self::MILD_INFLAMMATION => 'warning',
+            self::CHRONIC_INFLAMMATION => 'warning',
+            self::LIGHT_BLEEDING => 'warning',
+            self::CHRONIC_BLEEDING => 'danger',
+            self::INJURIES => 'danger',
         };
     }
 }

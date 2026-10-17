@@ -44,13 +44,13 @@ enum TreatmentPlanType: string implements HasColor, HasIcon, HasLabel
     public function getColor(): array|string|null
     {
         return match ($this) {
-            self::PREVENTIVE => 'green',
-            self::RESTORATIVE => 'blue',
-            self::ENDODONTIC => 'amber',
-            self::PERIODONTAL => 'red',
-            self::PROSTHETIC => 'purple',
-            self::SURGICAL => 'orange',
-            self::ORTHODONTIC => 'cyan',
+            self::PREVENTIVE => 'success',
+            self::RESTORATIVE => 'info',
+            self::ENDODONTIC => 'warning',
+            self::PERIODONTAL => 'danger',
+            self::PROSTHETIC => 'primary',
+            self::SURGICAL => 'warning',
+            self::ORTHODONTIC => 'info',
             self::OTHER => 'gray',
         };
     }

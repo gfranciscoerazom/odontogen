@@ -12,9 +12,9 @@ enum PatientIdType: string implements HasColor, HasIcon, HasLabel
 {
     use UseValueAsLabel;
 
+    case NATIONAL_ID = 'national_id';
     case PASSPORT = 'passport';
     case DRIVER_LICENSE = 'driver_license';
-    case NATIONAL_ID = 'national_id';
 
     /**
      * Get the icon for the enum case.
@@ -22,9 +22,9 @@ enum PatientIdType: string implements HasColor, HasIcon, HasLabel
     public function getIcon(): string|\BackedEnum|Htmlable|null
     {
         return match ($this) {
+            self::NATIONAL_ID => 'heroicon-o-identification',
             self::PASSPORT => 'heroicon-o-book-open',
             self::DRIVER_LICENSE => 'heroicon-o-credit-card',
-            self::NATIONAL_ID => 'heroicon-o-identification',
         };
     }
 
@@ -34,9 +34,9 @@ enum PatientIdType: string implements HasColor, HasIcon, HasLabel
     public function getColor(): array|string|null
     {
         return match ($this) {
-            self::PASSPORT => 'blue',
-            self::DRIVER_LICENSE => 'amber',
-            self::NATIONAL_ID => 'gray',
+            self::NATIONAL_ID => 'primary',
+            self::PASSPORT => 'success',
+            self::DRIVER_LICENSE => 'info',
         };
     }
 }

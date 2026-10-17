@@ -36,9 +36,9 @@ enum PatientCivilStatus: string implements HasColor, HasIcon, HasLabel
     public function getColor(): array|string|null
     {
         return match ($this) {
-            self::SINGLE => 'blue',
-            self::MARRIED => 'pink',
-            self::DIVORCED => 'amber',
+            self::SINGLE => 'primary',
+            self::MARRIED => 'success',
+            self::DIVORCED => 'danger',
             self::WIDOWED => 'gray',
         };
     }

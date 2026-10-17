@@ -9,6 +9,9 @@ trait UseValueAsLabel
      */
     public function getLabel(): string
     {
-        return $this->value;
+        // return $this->value;
+        return str($this->value)
+            ->replace(['-', '_'], ' ')
+            ->ucwords();
     }
 }
