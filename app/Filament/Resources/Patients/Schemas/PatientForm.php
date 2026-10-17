@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Patients\Schemas;
 
+use App\Enums\Patient\PatientAllergy;
 use App\Enums\Patient\PatientCivilStatus;
 use App\Enums\Patient\PatientEncy;
 use App\Enums\Patient\PatientIdType;
@@ -64,12 +65,7 @@ class PatientForm
                 Select::make('allergies')
                     ->required()
                     ->multiple()
-                    ->options([
-                        'penicillin' => 'Penicillin',
-                        'latex' => 'Latex',
-                        'nuts' => 'Nuts',
-                        'dust' => 'Dust',
-                    ]),
+                    ->options(PatientAllergy::class),
                 RichEditor::make('patient_notes')
                     ->columnSpanFull(),
                 Textarea::make('disease_history')
