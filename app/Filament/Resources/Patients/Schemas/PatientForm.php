@@ -3,7 +3,9 @@
 namespace App\Filament\Resources\Patients\Schemas;
 
 use App\Enums\Patient\PatientAllergy;
+use App\Enums\Patient\PatientCie10Code;
 use App\Enums\Patient\PatientCivilStatus;
+use App\Enums\Patient\PatientDiseaseHistory;
 use App\Enums\Patient\PatientEncy;
 use App\Enums\Patient\PatientIdType;
 use App\Enums\Patient\PatientLips;
@@ -17,7 +19,6 @@ use App\Enums\Patient\PatientTongue;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Schemas\Schema;
@@ -69,18 +70,17 @@ class PatientForm
                     ->options(PatientAllergy::class),
                 RichEditor::make('patient_notes')
                     ->columnSpanFull(),
-                Textarea::make('disease_history')
+                Select::make('disease_history')
+                    ->required()
+                    ->multiple()
+                    ->options(PatientDiseaseHistory::class)
                     ->columnSpanFull(),
                 RichEditor::make('medications')
                     ->columnSpanFull(),
                 Select::make('cie10_codes')
                     ->required()
                     ->multiple()
-                    ->options([
-                        'A00' => 'Cholera',
-                        'B00' => 'Herpesviral [herpes simplex] infections',
-                        'C00' => 'Malignant neoplasm of lip',
-                    ]),
+                    ->options(PatientCie10Code::class),
                 RichEditor::make('disease_notes')
                     ->columnSpanFull(),
                 ToggleButtons::make('salivary_glands')
