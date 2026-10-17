@@ -9,6 +9,7 @@ use App\Enums\Patient\PatientIdType;
 use App\Enums\Patient\PatientLips;
 use App\Enums\Patient\PatientMucosa;
 use App\Enums\Patient\PatientOcclusion;
+use App\Enums\Patient\PatientOralDisease;
 use App\Enums\Patient\PatientPalate;
 use App\Enums\Patient\PatientSalivaryGlands;
 use App\Enums\Patient\PatientSex;
@@ -110,7 +111,10 @@ class PatientForm
                     ->required()
                     ->options(PatientLips::class)
                     ->default(PatientLips::HEALTHY),
-                Textarea::make('oral_diseases')
+                Select::make('oral_diseases')
+                    ->required()
+                    ->multiple()
+                    ->options(PatientOralDisease::class)
                     ->columnSpanFull(),
                 RichEditor::make('oral_deseases_notes')
                     ->columnSpanFull(),
