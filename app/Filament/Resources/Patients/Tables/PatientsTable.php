@@ -29,8 +29,10 @@ class PatientsTable
                 TextColumn::make('city')
                     ->searchable(),
                 TextColumn::make('sex')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('civil_status')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('birth_date')
                     ->date()
@@ -42,20 +44,40 @@ class PatientsTable
                 TextColumn::make('id_number')
                     ->searchable(),
                 TextColumn::make('id_type')
+                    ->badge()
+                    ->searchable(),
+                TextColumn::make('allergies')
+                    ->badge()
+                    ->searchable(),
+                TextColumn::make('disease_history')
+                    ->badge()
+                    ->searchable(),
+                TextColumn::make('cie10_codes')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('salivary_glands')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('mucosa')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('palate')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('occlusion')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('ency')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('tongue')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('lips')
+                    ->badge()
+                    ->searchable(),
+                TextColumn::make('oral_diseases')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

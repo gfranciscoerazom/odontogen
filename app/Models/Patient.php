@@ -2,13 +2,29 @@
 
 namespace App\Models;
 
+use App\Enums\Patient\PatientAllergy;
+use App\Enums\Patient\PatientCie10Code;
+use App\Enums\Patient\PatientCivilStatus;
+use App\Enums\Patient\PatientDiseaseHistory;
+use App\Enums\Patient\PatientEncy;
+use App\Enums\Patient\PatientIdType;
+use App\Enums\Patient\PatientLips;
+use App\Enums\Patient\PatientMucosa;
+use App\Enums\Patient\PatientOcclusion;
+use App\Enums\Patient\PatientOralDisease;
+use App\Enums\Patient\PatientPalate;
+use App\Enums\Patient\PatientSalivaryGlands;
+use App\Enums\Patient\PatientSex;
+use App\Enums\Patient\PatientTongue;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Casts\AsEnumCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable([
     'first_name',
+    'last_name',
     'phone',
     'email',
     'address',
@@ -50,10 +66,20 @@ class Patient extends Model
         return [
             'id' => 'integer',
             'birth_date' => 'date',
-            'allergies' => 'array',
-            'disease_history' => 'array',
-            'cie10_codes' => 'array',
-            'oral_diseases' => 'array',
+            'sex' => PatientSex::class,
+            'civil_status' => PatientCivilStatus::class,
+            'id_type' => PatientIdType::class,
+            'allergies' => AsEnumCollection::of(PatientAllergy::class),
+            'disease_history' => AsEnumCollection::of(PatientDiseaseHistory::class),
+            'cie10_codes' => AsEnumCollection::of(PatientCie10Code::class),
+            'salivary_glands' => PatientSalivaryGlands::class,
+            'mucosa' => PatientMucosa::class,
+            'palate' => PatientPalate::class,
+            'occlusion' => PatientOcclusion::class,
+            'ency' => PatientEncy::class,
+            'tongue' => PatientTongue::class,
+            'lips' => PatientLips::class,
+            'oral_diseases' => AsEnumCollection::of(PatientOralDisease::class),
         ];
     }
 
