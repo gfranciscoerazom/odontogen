@@ -84,13 +84,17 @@ class PatientInfolist
                                     ->columnSpanFull()
                                     ->prose(),
                             ]),
+                        Tab::make('Record Information')
+                            ->columns(2)
+                            ->schema([
+                                TextEntry::make('created_at')
+                                    ->since()
+                                    ->placeholder('-'),
+                                TextEntry::make('updated_at')
+                                    ->since()
+                                    ->placeholder('-'),
+                            ]),
                     ]),
-                TextEntry::make('created_at')
-                    ->dateTime()
-                    ->placeholder('-'),
-                TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
             ]);
     }
 }
