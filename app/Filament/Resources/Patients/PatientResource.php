@@ -6,6 +6,7 @@ use App\Filament\Resources\Patients\Pages\CreatePatient;
 use App\Filament\Resources\Patients\Pages\EditPatient;
 use App\Filament\Resources\Patients\Pages\ListPatients;
 use App\Filament\Resources\Patients\Pages\ViewPatient;
+use App\Filament\Resources\Patients\RelationManagers\TreatmentPlansRelationManager;
 use App\Filament\Resources\Patients\Schemas\PatientForm;
 use App\Filament\Resources\Patients\Schemas\PatientInfolist;
 use App\Filament\Resources\Patients\Tables\PatientsTable;
@@ -42,7 +43,7 @@ class PatientResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            'treatmentPlans' => TreatmentPlansRelationManager::class,
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\TreatmentPlan\TreatmentPlanType;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -30,6 +31,7 @@ class TreatmentPlan extends Model
             'patient_id' => 'integer',
             'date' => 'date',
             'appointment' => 'datetime',
+            'type' => TreatmentPlanType::class,
         ];
     }
 

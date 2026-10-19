@@ -35,11 +35,11 @@ class PatientFactory extends Factory
             'insurance_company' => fake()->company(),
             'id_number' => fake()->regexify('[A-Za-z0-9]{13}'),
             'id_type' => fake()->randomElement(PatientIdType::class),
-            'allergies' => '{}',
+            'allergies' => [],
             'patient_notes' => fake()->realText(),
-            'disease_history' => '{}',
+            'disease_history' => [],
             'medications' => fake()->text(),
-            'cie10_codes' => '{}',
+            'cie10_codes' => [],
             'disease_notes' => fake()->text(),
             'salivary_glands' => fake()->randomElement(PatientSalivaryGlands::class),
             'mucosa' => fake()->randomElement(PatientMucosa::class),
@@ -48,7 +48,7 @@ class PatientFactory extends Factory
             'ency' => fake()->randomElement(PatientEncy::class),
             'tongue' => fake()->randomElement(PatientTongue::class),
             'lips' => fake()->randomElement(PatientLips::class),
-            'oral_diseases' => '{}',
+            'oral_diseases' => [],
             'oral_deseases_notes' => fake()->text(),
         ];
     }
